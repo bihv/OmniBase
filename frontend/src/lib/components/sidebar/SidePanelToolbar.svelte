@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Plus, RefreshCw, SlidersHorizontal, Search, FolderPlus, DatabaseZap, Upload } from 'lucide-svelte';
 	import { connectionsStore } from '$lib/stores/connections';
+	import { connectionDialog } from '$lib/stores/ui';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 
 	const databaseTypes = [
@@ -26,8 +27,7 @@
 	}
 
 	function handleSelectDbType(dbType: string) {
-		// TODO: open connection form for the selected database type
-		console.log('Selected database type:', dbType);
+		connectionDialog.set({ open: true, driver: dbType, editId: null });
 	}
 
 	function handleImportConnections() {

@@ -4,6 +4,7 @@
 	import MainContent from '$lib/components/layout/MainContent.svelte';
 	import RightBar from '$lib/components/layout/RightBar.svelte';
 	import StatusBar from '$lib/components/layout/StatusBar.svelte';
+	import AddConnectionForm from '$lib/components/connection/AddConnectionForm.svelte';
 </script>
 
 <div class="flex h-screen w-screen flex-col overflow-hidden bg-background">
@@ -25,3 +26,6 @@
 	<!-- Status Bar -->
 	<StatusBar />
 </div>
+
+<!-- Connection Dialog (always mounted, controlled by uiStore) -->
+<AddConnectionForm />
