@@ -17,3 +17,6 @@ frontend/.svelte-kit
 # OS
 .DS_Store
 Thumbs.db
+
+# Wails auto-generated
+frontend/wailsjs

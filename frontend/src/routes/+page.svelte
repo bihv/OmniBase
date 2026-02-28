@@ -1,40 +1,27 @@
 <script lang="ts">
-	import { Greet } from '$wailsjs/go/backend/App';
-	import { Button } from '$lib/components/ui/button';
-	import { Input } from '$lib/components/ui/input';
-	import * as Card from '$lib/components/ui/card';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
-
-	let name = $state('');
-	let greeting = $state('');
-
-	async function greet() {
-		greeting = await Greet(name);
-	}
+	import ActivityBar from '$lib/components/layout/ActivityBar.svelte';
+	import SidePanel from '$lib/components/layout/SidePanel.svelte';
+	import MainContent from '$lib/components/layout/MainContent.svelte';
+	import RightBar from '$lib/components/layout/RightBar.svelte';
+	import StatusBar from '$lib/components/layout/StatusBar.svelte';
 </script>
 
-<div class="flex min-h-screen items-center justify-center bg-background p-8">
-	<div class="absolute top-4 right-4">
-		<ThemeToggle />
-	</div>
-	<Card.Root class="w-full max-w-md">
-		<Card.Header class="text-center">
-			<Card.Title class="text-3xl font-bold tracking-tight">OmniBase</Card.Title>
-			<Card.Description>Database Client</Card.Description>
-		</Card.Header>
-		<Card.Content class="space-y-4">
-			<div class="flex gap-2">
-				<Input
-					type="text"
-					bind:value={name}
-					placeholder="Enter your name..."
-				/>
-				<Button onclick={greet}>Greet</Button>
-			</div>
+<div class="flex h-screen w-screen flex-col overflow-hidden bg-background">
+	<!-- Main area -->
+	<div class="flex flex-1 overflow-hidden">
+		<!-- Activity Bar (leftmost icon strip) -->
+		<ActivityBar />
 
-			{#if greeting}
-				<p class="text-center text-lg font-medium text-foreground">{greeting}</p>
-			{/if}
-		</Card.Content>
-	</Card.Root>
+		<!-- Side Panel (database tree) -->
+		<SidePanel />
+
+		<!-- Main Content Area -->
+		<MainContent />
+
+		<!-- Right Bar -->
+		<RightBar />
+	</div>
+
+	<!-- Status Bar -->
+	<StatusBar />
 </div>

@@ -35,7 +35,7 @@ func main() {
 			app.SchemaCtrl,
 		},
 		Mac: &mac.Options{
-			TitleBar: mac.TitleBarHiddenInset(),
+			TitleBar: mac.TitleBarDefault(),
 			About: &mac.AboutInfo{
 				Title:   "OmniBase",
 				Message: "Database Client",
